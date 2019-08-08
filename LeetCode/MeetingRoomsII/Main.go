@@ -10,7 +10,7 @@ func minMeetingRooms(intervals []Interval) int {
 		return length
 	}
 	sort.Sort(Intervals(intervals))
-	heap := MinHeap{}
+	var heap MinHeap
 	heap.Push(intervals[0].End)
 	for i := 1; i < length; i++ {
 		if intervals[i].Start >= heap.Top() {

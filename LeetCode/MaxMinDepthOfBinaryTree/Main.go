@@ -1,18 +1,21 @@
 package MaxMinDepthOfBinaryTree
 
-import . "Algorithms/LeetCode/internal/tree"
+import (
+	"Algorithms"
+	. "Algorithms/internal/tree"
+)
 
-func maxDepth(root *TreeNode) (max int) {
+func maxDepth(root *Algorithms.TreeNode) (max int) {
 	max, _ = maxMinDepth(root)
 	return max
 }
 
-func maxMinDepth(root *TreeNode) (max, min int) {
+func maxMinDepth(root *Algorithms.TreeNode) (max, min int) {
 	if root == nil {
 		return 0, 0
 	}
 	queue := make([]*TreeNode, 0, 7)
-	if IsLeaf(root) {
+	if Algorithms.IsLeaf(root) {
 		max, min = 1, 1
 	} else {
 		queue = append(queue, root)
@@ -23,7 +26,7 @@ func maxMinDepth(root *TreeNode) (max, min int) {
 		for i := 0; i < length; i++ {
 			parentNode := queue[i]
 			if parentNode.Left != nil {
-				if IsLeaf(parentNode.Left) {
+				if Algorithms.IsLeaf(parentNode.Left) {
 					if min == 0 {
 						min = depth
 					}
@@ -35,7 +38,7 @@ func maxMinDepth(root *TreeNode) (max, min int) {
 				}
 			}
 			if parentNode.Right != nil {
-				if IsLeaf(parentNode.Right) {
+				if Algorithms.IsLeaf(parentNode.Right) {
 					if min == 0 {
 						min = depth
 					}
@@ -53,12 +56,12 @@ func maxMinDepth(root *TreeNode) (max, min int) {
 	return
 }
 
-func minDepth(root *TreeNode) int {
+func minDepth(root *Algorithms.TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	queue := make([]*TreeNode, 0, 7)
-	if IsLeaf(root) {
+	queue := make([]*Algorithms.TreeNode, 0, 7)
+	if Algorithms.IsLeaf(root) {
 		return 1
 	} else {
 		queue = append(queue, root)
@@ -69,14 +72,14 @@ func minDepth(root *TreeNode) int {
 		for i := 0; i < length; i++ {
 			parentNode := queue[i]
 			if parentNode.Left != nil {
-				if IsLeaf(parentNode.Left) {
+				if Algorithms.IsLeaf(parentNode.Left) {
 					return depth
 				} else {
 					queue = append(queue, parentNode.Left)
 				}
 			}
 			if parentNode.Right != nil {
-				if IsLeaf(parentNode.Right) {
+				if Algorithms.IsLeaf(parentNode.Right) {
 					return depth
 				} else {
 					queue = append(queue, parentNode.Right)

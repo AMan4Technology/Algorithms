@@ -1,8 +1,10 @@
 package DetectCycle
 
-import . "Algorithms/LeetCode/internal/linkedlist"
+import (
+	"Algorithms"
+)
 
-func hasCycle(head *ListNode) bool {
+func hasCycle(head *Algorithms.ListNode) bool {
 	if head == nil {
 		return false
 	}

@@ -1,14 +1,16 @@
 package trie
 
+import "Algorithms"
+
 func NewTrie(charNum int) Trie {
 	return Trie{
-		root:    newNode(charNum),
+		root:    Algorithms.newNode(charNum),
 		charNum: charNum,
 	}
 }
 
 type Trie struct {
-	root    *node
+	root    *Algorithms.node
 	charNum int
 }
 
@@ -17,7 +19,7 @@ func (t Trie) Insert(word string) {
 	for _, c := range word {
 		hash := c - 'a'
 		if pre.next[hash] == nil {
-			pre.next[hash] = newNode(t.charNum)
+			pre.next[hash] = Algorithms.newNode(t.charNum)
 		}
 		pre = pre.next[hash]
 	}
@@ -39,7 +41,7 @@ func (t Trie) Words(prefix string) (results []string) {
 	return start.words(prefix, results)
 }
 
-func (t Trie) endNode(prefix string) (pre *node) {
+func (t Trie) endNode(prefix string) (pre *Algorithms.node) {
 	pre = t.root
 	for _, c := range prefix {
 		hash := c - 'a'

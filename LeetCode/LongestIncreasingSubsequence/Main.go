@@ -1,6 +1,8 @@
 package LongestIncreasingSubsequence
 
-import . "Algorithms/LeetCode/internal/box/math"
+import (
+	"Algorithms"
+)
 
 func lengthOfLIS(nums []int) (max int) {
 	length := len(nums)
@@ -11,10 +13,10 @@ func lengthOfLIS(nums []int) (max int) {
 	for i, num := range nums {
 		for j := i - 1; j >= 0; j-- {
 			if nums[j] < num {
-				lengths[i] = MaxOfTwo(lengths[j]+1, lengths[i])
+				lengths[i] = Algorithms.MaxOfTwo(lengths[j]+1, lengths[i])
 			}
 		}
-		max = MaxOfTwo(lengths[i], max)
+		max = Algorithms.MaxOfTwo(lengths[i], max)
 	}
 	return
 }

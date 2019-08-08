@@ -3,7 +3,7 @@ package IntegerToEnglishWords
 import (
 	"strings"
 
-	. "Algorithms/LeetCode/internal/box/math"
+	"Algorithms"
 )
 
 var wordWithInt = map[int]string{
@@ -20,7 +20,7 @@ func numberToWords(num int) (result string) {
 		if num%1000 != 0 {
 			result = parseThousand(num%1000) + " " + wordWithInt[i] + " " + result
 		}
-		i = MaxOfTwo(i, 1) * 1000
+		i = Algorithms.MaxOfTwo(i, 1) * 1000
 	}
 	return strings.TrimSpace(result)
 }

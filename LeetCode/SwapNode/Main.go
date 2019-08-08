@@ -1,13 +1,15 @@
 package SwapNode
 
-import . "Algorithms/LeetCode/internal/linkedlist"
+import (
+	"Algorithms"
+)
 
-func swapPairs(head *ListNode) *ListNode {
+func swapPairs(head *Algorithms.ListNode) *Algorithms.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	var prev, a, b *ListNode
-	prev = new(ListNode)
+	var prev, a, b *Algorithms.ListNode
+	prev = new(Algorithms.ListNode)
 	a, head = head, head.Next
 	for a != nil && a.Next != nil {
 		b = a.Next

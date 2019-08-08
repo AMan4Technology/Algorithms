@@ -1,6 +1,8 @@
 package linkedlist
 
-import . "Algorithms/LeetCode/internal/heap"
+import (
+	"Algorithms"
+)
 
 func mergeKLists(lists []*ListNode) (head *ListNode) {
 	length := len(lists)
@@ -10,7 +12,7 @@ func mergeKLists(lists []*ListNode) (head *ListNode) {
 	if length == 1 {
 		return lists[0]
 	}
-	heap := NewMin(length)
+	heap := Algorithms.NewMin(length)
 	currents := make([]*ListNode, 0, length)
 	for _, curr := range lists {
 		if curr != nil {

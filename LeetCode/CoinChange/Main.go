@@ -1,7 +1,7 @@
 package CoinChange
 
 import (
-	. "Algorithms/LeetCode/internal/box/math"
+	"Algorithms"
 )
 
 func coinChange(coins []int, amount int) int {
@@ -16,7 +16,7 @@ func coinChange(coins []int, amount int) int {
 		nums[i] = amount + 1
 		for _, value := range coins {
 			if value <= i {
-				nums[i] = MinOfTwo(nums[i-value]+1, nums[i])
+				nums[i] = Algorithms.MinOfTwo(nums[i-value]+1, nums[i])
 			}
 		}
 	}

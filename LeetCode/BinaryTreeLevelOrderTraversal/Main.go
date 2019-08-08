@@ -1,14 +1,16 @@
 package BinaryTreeLevelOrderTraversal
 
-import . "Algorithms/LeetCode/internal/tree"
+import (
+	"Algorithms"
+)
 
-func levelOrderByBFS(root *TreeNode) (results [][]int) {
+func levelOrderByBFS(root *Algorithms.TreeNode) (results [][]int) {
 	if root == nil {
 		return nil
 	}
-	queue := make([]*TreeNode, 0, 7)
+	queue := make([]*Algorithms.TreeNode, 0, 7)
 	results = append(results, []int{root.Val})
-	if !IsLeaf(root) {
+	if !Algorithms.IsLeaf(root) {
 		queue = append(queue, root)
 	}
 	for len(queue) != 0 {
@@ -18,13 +20,13 @@ func levelOrderByBFS(root *TreeNode) (results [][]int) {
 			parentNode := queue[i]
 			if parentNode.Left != nil {
 				levelValues = append(levelValues, parentNode.Left.Val)
-				if !IsLeaf(parentNode.Left) {
+				if !Algorithms.IsLeaf(parentNode.Left) {
 					queue = append(queue, parentNode.Left)
 				}
 			}
 			if parentNode.Right != nil {
 				levelValues = append(levelValues, parentNode.Right.Val)
-				if !IsLeaf(parentNode.Right) {
+				if !Algorithms.IsLeaf(parentNode.Right) {
 					queue = append(queue, parentNode.Right)
 				}
 			}
@@ -35,7 +37,7 @@ func levelOrderByBFS(root *TreeNode) (results [][]int) {
 	return
 }
 
-func levelOrderByDFS(root *TreeNode) (results [][]int) {
+func levelOrderByDFS(root *Algorithms.TreeNode) (results [][]int) {
 	if root == nil {
 		return nil
 	}
@@ -44,7 +46,7 @@ func levelOrderByDFS(root *TreeNode) (results [][]int) {
 	return
 }
 
-func accessNode(node *TreeNode, level int, results [][]int) [][]int {
+func accessNode(node *Algorithms.TreeNode, level int, results [][]int) [][]int {
 	if len(results) < level+1 {
 		results = append(results, []int{})
 	}

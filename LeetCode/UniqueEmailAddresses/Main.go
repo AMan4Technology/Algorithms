@@ -9,7 +9,7 @@ func numUniqueEmails(emails []string) int {
 	}
 	var (
 		countWithEmail = make(map[string]struct{})
-		valid          = strings.Builder{}
+		valid          strings.Builder
 	)
 	for _, email := range emails {
 		for length, i := len(email), 0; i < length; i++ {

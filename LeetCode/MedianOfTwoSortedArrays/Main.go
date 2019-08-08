@@ -1,6 +1,8 @@
 package MedianOfTwoSortedArrays
 
-import . "Algorithms/LeetCode/internal/box/math"
+import (
+	"Algorithms"
+)
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	var (
@@ -48,7 +50,7 @@ compute:
 	if end-length2 == 0 {
 		prev = nums2[length2-1]
 	} else {
-		prev = MaxOfTwo(nums1[end-length2-1], nums2[length2-1])
+		prev = Algorithms.MaxOfTwo(nums1[end-length2-1], nums2[length2-1])
 	}
 result:
 	if length&1 != 0 {

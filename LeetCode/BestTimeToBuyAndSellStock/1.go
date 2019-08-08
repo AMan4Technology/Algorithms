@@ -1,6 +1,8 @@
 package BestTimeToBuyAndSellStock
 
-import . "Algorithms/LeetCode/internal/box/math"
+import (
+	"Algorithms"
+)
 
 func maxProfit1(prices []int) (max int) {
 	if len(prices) < 2 {
@@ -10,7 +12,7 @@ func maxProfit1(prices []int) (max int) {
 	for day, price := range prices {
 		priceChange := price - prices[buyDay]
 		if priceChange > 0 {
-			max = MaxOfTwo(priceChange, max)
+			max = Algorithms.MaxOfTwo(priceChange, max)
 		} else if priceChange < 0 {
 			buyDay = day
 		}

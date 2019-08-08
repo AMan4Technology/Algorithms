@@ -3,10 +3,12 @@ package trie
 import (
 	"fmt"
 	"testing"
+
+	"Algorithms"
 )
 
 func TestTrie_Words(t *testing.T) {
-	trie := NewTrie(26)
+	trie := Algorithms.NewTrie(26)
 	trie.Insert("apple")
 	trie.Search("apple")   // return true
 	trie.Search("app")     // return false

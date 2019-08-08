@@ -1,6 +1,8 @@
 package BestTimeToBuyAndSellStock
 
-import . "Algorithms/LeetCode/internal/box/math"
+import (
+	"Algorithms"
+)
 
 func maxProfit(prices []int, transNum int) (max int) {
 	length := len(prices)
@@ -27,11 +29,11 @@ func maxProfit(prices []int, transNum int) (max int) {
 	}
 	for day := 1; day < length; day++ {
 		x, y := (day-1)%2, day%2
-		maximums[y][1][0] = MaxOfTwo(maximums[x][1][0], maximums[x][0][0]-prices[day])
+		maximums[y][1][0] = Algorithms.MaxOfTwo(maximums[x][1][0], maximums[x][0][0]-prices[day])
 		for trans := 1; trans <= transNum; trans++ {
-			maximums[y][0][trans] = MaxOfTwo(maximums[x][0][trans], maximums[x][1][trans-1]+prices[day])
-			maximums[y][1][trans] = MaxOfTwo(maximums[x][1][trans], maximums[x][0][trans]-prices[day])
+			maximums[y][0][trans] = Algorithms.MaxOfTwo(maximums[x][0][trans], maximums[x][1][trans-1]+prices[day])
+			maximums[y][1][trans] = Algorithms.MaxOfTwo(maximums[x][1][trans], maximums[x][0][trans]-prices[day])
 		}
 	}
-	return Max(0, maximums[(length-1)%2][0]...)
+	return Algorithms.Max(0, maximums[(length-1)%2][0]...)
 }

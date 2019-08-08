@@ -1,8 +1,10 @@
 package ValidateBinarySearchTree
 
-import . "Algorithms/LeetCode/internal/tree"
+import (
+	"Algorithms"
+)
 
-func isValidBST(root *TreeNode) bool {
+func isValidBST(root *Algorithms.TreeNode) bool {
 	if root == nil {
 		return true
 	}
@@ -10,7 +12,7 @@ func isValidBST(root *TreeNode) bool {
 	return valid
 }
 
-func validate(root *TreeNode) (min, max int, valid bool) {
+func validate(root *Algorithms.TreeNode) (min, max int, valid bool) {
 	min, max = root.Val, root.Val
 	if root.Left != nil {
 		leftMin, leftMax, leftValid := validate(root.Left)

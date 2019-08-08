@@ -3,7 +3,7 @@ package MergeIntervals
 import (
 	"sort"
 
-	. "Algorithms/LeetCode/internal/box/math"
+	"Algorithms"
 )
 
 func merge(intervals []Interval) (result []Interval) {
@@ -18,7 +18,7 @@ func merge(intervals []Interval) (result []Interval) {
 			curr++
 			continue
 		}
-		result[curr].End = MaxOfTwo(result[curr].End, intervals[i].End)
+		result[curr].End = Algorithms.MaxOfTwo(result[curr].End, intervals[i].End)
 	}
 	return
 }

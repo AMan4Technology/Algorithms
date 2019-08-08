@@ -1,8 +1,10 @@
 package LowestCommonAncestorOfABinaryTree
 
-import . "Algorithms/LeetCode/internal/tree"
+import (
+	"Algorithms"
+)
 
-func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+func lowestCommonAncestor(root, p, q *Algorithms.TreeNode) *Algorithms.TreeNode {
 	if root == nil {
 		return nil
 	}

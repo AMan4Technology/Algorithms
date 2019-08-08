@@ -2,8 +2,8 @@ package lru
 
 func Constructor(capacity int) LRUCache {
 	var (
-		head = &node{}
-		tail = &node{}
+		head = new(node)
+		tail = new(node)
 	)
 	head.next, tail.prev = tail, head
 	return LRUCache{

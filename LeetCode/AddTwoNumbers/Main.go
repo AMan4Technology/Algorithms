@@ -1,15 +1,17 @@
 package AddTwoNumbers
 
-import . "Algorithms/LeetCode/internal/linkedlist"
+import (
+	"Algorithms"
+)
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) (head *ListNode) {
+func addTwoNumbers(l1 *Algorithms.ListNode, l2 *Algorithms.ListNode) (head *Algorithms.ListNode) {
 	if l1 == nil && l2 == nil {
 		return nil
 	}
-	head = new(ListNode)
+	head = new(Algorithms.ListNode)
 	var (
 		prev = head
-		curr = new(ListNode)
+		curr = new(Algorithms.ListNode)
 	)
 	for l1 != nil || l2 != nil || curr.Value != 0 {
 		if l1 != nil {
@@ -21,7 +23,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) (head *ListNode) {
 			l2 = l2.Next
 		}
 		prev.Next = curr
-		curr.Value, prev, curr = curr.Value%10, curr, &ListNode{Value: curr.Value / 10}
+		curr.Value, prev, curr = curr.Value%10, curr, &Algorithms.ListNode{Value: curr.Value / 10}
 	}
 	return head.Next
 }

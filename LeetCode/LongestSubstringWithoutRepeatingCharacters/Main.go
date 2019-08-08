@@ -1,6 +1,8 @@
 package LongestSubstringWithoutRepeatingCharacters
 
-import . "Algorithms/LeetCode/internal/box/math"
+import (
+	"Algorithms"
+)
 
 func lengthOfLongestSubstring(s string) (count int) {
 	length := len(s)
@@ -23,7 +25,7 @@ func lengthOfLongestSubstring(s string) (count int) {
 				}
 			}
 		}
-		count = MaxOfTwo(count, tail-head)
+		count = Algorithms.MaxOfTwo(count, tail-head)
 	}
 	return
 }

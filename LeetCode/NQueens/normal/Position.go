@@ -37,7 +37,7 @@ func validPositions(i, n int, col, pie, na []bool, positions []int, results [][]
 
 func saveResult(results [][]string, positions []int, n int) [][]string {
 	result := make([]string, n)
-	positionStr := strings.Builder{}
+	var positionStr strings.Builder
 	for i, position := range positions {
 		for k := 0; k < position; k++ {
 			positionStr.WriteByte('.')

@@ -28,7 +28,7 @@ func validPositions(row, n, col, pie, na uint, positions []uint, results *[][]st
 
 func saveResult(results *[][]string, positions []uint, n uint) {
 	result := make([]string, n)
-	positionStr := strings.Builder{}
+	var positionStr strings.Builder
 	for i, position := range positions {
 		for k := uint(1 << (n - 1)); k != 0; k = k >> 1 {
 			if position&k == 0 {

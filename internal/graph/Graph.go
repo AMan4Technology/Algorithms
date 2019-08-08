@@ -30,7 +30,7 @@ func (g Graph) ToPoSort() string {
 	}
 	var (
 		queue  = make([]int, 0, 2)
-		result = strings.Builder{}
+		result strings.Builder
 	)
 	for i, inDegree := range inDegrees {
 		if inDegree == 0 {

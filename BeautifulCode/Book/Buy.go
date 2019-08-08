@@ -20,8 +20,10 @@ func BuyBooks(x ...int) float64 {
 }
 
 func buyBooks(y []int) float64 {
-	wg := sync.WaitGroup{}
-	ch := make(chan float64)
+	var (
+		wg sync.WaitGroup
+		ch = make(chan float64)
+	)
 	sort.Ints(y)
 	for number := range soleWithN {
 		copyY := make([]int, len(y))

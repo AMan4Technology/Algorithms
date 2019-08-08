@@ -1,6 +1,8 @@
 package FruitIntoBaskets
 
-import . "Algorithms/LeetCode/internal/box/math"
+import (
+	"Algorithms"
+)
 
 func totalFruit(tree []int) int {
 	return totalFruitWithN(tree, 2)
@@ -33,7 +35,7 @@ func totalFruitWithN(tree []int, num int) (count int) {
 		}
 	update:
 		numWithVal[tree[i]]++
-		count = MaxOfTwo(count, i+1-head)
+		count = Algorithms.MaxOfTwo(count, i+1-head)
 	}
 	return
 }

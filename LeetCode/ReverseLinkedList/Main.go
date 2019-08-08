@@ -1,12 +1,14 @@
 package ReverseLinkedList
 
-import . "Algorithms/LeetCode/internal/linkedlist"
+import (
+	"Algorithms"
+)
 
-func reverseList(head *ListNode) *ListNode {
+func reverseList(head *Algorithms.ListNode) *Algorithms.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	var prev, cur *ListNode
+	var prev, cur *Algorithms.ListNode
 	cur = head
 	for cur != nil {
 		cur.Next, cur, prev = prev, cur.Next, cur

@@ -1,6 +1,8 @@
 package EditDistance
 
-import . "Algorithms/LeetCode/internal/box/math"
+import (
+	"Algorithms"
+)
 
 func minDistance(word1 string, word2 string) int {
 	var (
@@ -26,7 +28,7 @@ func minDistance(word1 string, word2 string) int {
 			if word1[i-1] == word2[j-1] {
 				distances[i][j] = distances[i-1][j-1]
 			} else {
-				distances[i][j] = 1 + Min(distances[i-1][j-1], distances[i][j-1], distances[i-1][j])
+				distances[i][j] = 1 + Algorithms.Min(distances[i-1][j-1], distances[i][j-1], distances[i-1][j])
 			}
 		}
 	}
